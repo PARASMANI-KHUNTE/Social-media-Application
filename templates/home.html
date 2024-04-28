@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sparklink</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"><!-- Add your custom styles here -->
+</head>
+<body class="bg-gray-100">
+
+    <nav class="bg-gray-800 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">Sparklink</h1>
+            <button onclick="chbtn()" id="logoutButton" class="nav-link hover:underline">Logout</button>
+            <ul class="flex space-x-4" id="navLinks">
+                <!-- <li><a href="/home" class="nav-link">Home</a></li>
+                <li><a href="/chat" class="nav-link">Chat</a></li> -->
+                <button onclick="togglePostForm()" class="nav-link hover:underline">Post</button>
+                <!-- <li><a href="/profile" class="nav-link">Profile</a></li>
+                <li><a href="/myActivity" class="nav-link">My Activities</a></li>
+                <li><a href="/settings" class="nav-link">Settings</a></li> -->
+                
+            </ul>
+        </div>
+    </nav>
+    
+    
+
+    <!-- <section class="bg-white py-8">
+        <div class="container mx-auto">
+            <ul class="flex flex-wrap justify-center gap-4">
+                <li class="text-center">
+                    <a href="#">
+                        <img class="rounded-full w-16 h-16 mx-auto mb-2" src="https://i.pinimg.com/564x/0f/5b/27/0f5b27534ebe5da628c51c1f5cb81c6b.jpg" alt="">
+                        <h5 class="text-sm">My Story</h5>
+                    </a>
+                </li>
+                <li class="text-center">
+                    <a href="#">
+                        <img class="rounded-full w-16 h-16 mx-auto mb-2" src="https://i.pinimg.com/564x/62/71/14/627114934fadf01243f66dd513e38406.jpg" alt="">
+                        <h5 class="text-sm">Jessi</h5>
+                    </a>
+                </li>
+                <li class="text-center">
+                    <a href="#">
+                        <img class="rounded-full w-16 h-16 mx-auto mb-2" src="https://i.pinimg.com/564x/9c/e7/c4/9ce7c461e64c8af1c64827f4dd6e24d9.jpg" alt="">
+                        <h5 class="text-sm">Sona</h5>
+                    </a>
+                </li>
+                <li class="text-center">
+                    <a href="#">
+                        <img class="rounded-full w-16 h-16 mx-auto mb-2" src="https://i.pinimg.com/564x/f5/15/cb/f515cb6fa7e3428936c13bec9c48c1f3.jpg" alt="">
+                        <h5 class="text-sm">Chipi</h5>
+                    </a>
+                </li>
+                <li class="text-center">
+                    <a href="#">
+                        <img class="rounded-full w-16 h-16 mx-auto mb-2" src="https://i.pinimg.com/564x/19/f4/ae/19f4aed5c464bb17c742cbef78d8f968.jpg" alt="">
+                        <h5 class="text-sm">Oli</h5>
+                    </a>
+                </li>
+                <li class="text-center">
+                    <a href="#">
+                        <img class="rounded-full w-16 h-16 mx-auto mb-2" src="https://i.pinimg.com/564x/b5/f2/e3/b5f2e3b9b69d8c07299c0fb2c5dede47.jpg" alt="">
+                        <h5 class="text-sm">Vinee</h5>
+                    </a>
+                </li>
+            </ul>
+           
+        </div>
+    </section>
+     -->
+
+    
+    
+
+    <!-- Navigation for posts -->
+    <!-- <nav class="py-4">
+        <div class="container mx-auto flex justify-center items-center">
+            <ul class="flex space-x-4">
+                <li><a href="#" class="hover:underline">Recent</a></li>
+                <li><a href="#" class="hover:underline">Most Popular</a></li>
+                <li><a href="#" class="hover:underline">Recommended</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-8 "> -->
+        
+    
+        <!-- Post Form -->
+        <form action="/newPost" method="POST" class="bg-white p-6 rounded-lg shadow-md" id="postForm">
+            <h1 class="text-2xl font-bold mb-4">Create a Post</h1>
+    
+            <!-- Post Title -->
+            <div class="mb-4">
+                <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+                <input type="text" id="title" name="title" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Enter post title" required>
+            </div>
+    
+            <!-- Post Description -->
+            <div class="mb-4">
+                <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                <textarea id="description" name="description" rows="4" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Enter post description" required></textarea>
+            </div>
+    
+            <!-- Post Button -->
+            <div class="flex justify-end">
+                <button type="submit" id="postButton" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Post
+                </button>
+                
+            </div>
+    
+        </form>
+    </div>
+
+
+    <!-- Preview Section -->
+    <section class="container mx-auto mt-8">
+        <h2 class="text-2xl font-bold mb-4 text-center ">Posts</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-center">
+            <!-- Add your preview cards here -->
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.getElementById('logoutButton').addEventListener('click', async (event) => {
+    event.preventDefault();
+
+    // Extract username from URL query parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const username = urlParams.get('username');
+
+    try {
+        const response = await axios.post('/logout', { username });
+        console.log(response.data);
+        alert('Logout successful');
+        // Redirect user to login page or perform any other action
+        window.location.href = '/index.html';
+    } catch (error) {
+        console.error('Logout failed:', error.response.data.message);
+        alert('Logout failed: ' + error.response.data.message);
+    }
+});
+
+
+
+
+
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+// Update page title with username from query parameter
+const username = getParameterByName('username');
+if (username) {
+    document.title = `Sparklink - ${username}`;
+}
+
+
+
+
+
+
+function togglePostForm() {
+    const postForm = document.getElementById('postForm');
+    if (postForm.classList.contains('hidden')) {
+        postForm.classList.remove('hidden');
+    } else {
+        postForm.classList.add('hidden');
+    }
+}
+
+// Hide the post form initially
+document.getElementById('postForm').classList.add('hidden');
+
+
+
+
+
+
+
+
+// Function to get the value of a query parameter from the URL
+function getQueryParam(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
+// Function to handle form submission for creating a post
+document.getElementById('postForm').addEventListener('submit', async (event) => {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+
+    // Get the form data
+    const title = document.getElementById('title').value;
+    const description = document.getElementById('description').value;
+    
+    // Get the username from the URL
+    const username = getQueryParam('username');
+
+    try {
+        // Make an AJAX request to the backend to create a new post
+        const response = await axios.post('/post', { username, postTitle: title, postDesc: description });
+        
+        // Handle the response if needed (e.g., show a success message)
+        console.log(response.data);
+        alert('Post created successfully');
+
+        // Clear the form fields after successful submission
+        document.getElementById('title').value = '';
+        document.getElementById('description').value = '';
+    } catch (error) {
+        // Handle errors if the request fails (e.g., show an error message)
+        console.error('Failed to create post:', error.response.data.message);
+        alert('Failed to create post: ' + error.response.data.message);
+    }
+});
+
+
+
+
+// Function to fetch posts from the backend
+async function fetchPosts() {
+    try {
+        const response = await fetch('/posts');
+        if (!response.ok) {
+            throw new Error('Failed to fetch posts');
+        }
+        const posts = await response.json();
+        return posts;
+    } catch (error) {
+        console.error(error);
+        return [];
+    }
+}
+
+// Function to create a preview card for a post
+function createPreviewCard(post) {
+    const card = document.createElement('div');
+    card.classList.add('bg-white', 'p-4', 'rounded-lg', 'shadow-md');
+
+    const title = document.createElement('h3');
+    title.classList.add('text-lg', 'font-semibold', 'mb-2');
+    title.textContent = post.postTitle;
+
+    const description = document.createElement('p');
+    description.classList.add('text-gray-700');
+    description.textContent = post.postDesc;
+
+    const username = document.createElement('p');
+    username.classList.add('text-gray-500', 'text-sm', 'mt-2');
+    username.textContent = `By: ${post.username}`;
+
+    card.appendChild(title);
+    card.appendChild(description);
+    card.appendChild(username);
+
+    return card;
+}
+
+// Function to render posts
+async function renderPosts() {
+    const previewSection = document.querySelector('.container.mx-auto.mt-8 .grid');
+
+    const posts = await fetchPosts();
+    posts.forEach(post => {
+        const card = createPreviewCard(post);
+        previewSection.appendChild(card);
+    });
+}
+
+// Event listener for scrolling to load more posts
+window.addEventListener('scroll', () => {
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    if (scrollTop + clientHeight >= scrollHeight - 5) {
+        renderPosts();
+    }
+});
+
+// Initial render of posts
+renderPosts();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+    <script src="script.js"></script> <!-- Add your JavaScript file here -->
+</body>
+</html>

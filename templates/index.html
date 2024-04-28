@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup</title>
+    <!-- Link Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+<nav class="bg-gray-800 p-4">
+    <div class="flex justify-between items-center">
+        <h1 class="text-white text-2xl font-semibold">Sparklink</h1>
+        <div>
+            <button id="loginButton" class="text-white px-4 py-2 rounded-md bg-blue-500 hover:bg-blue-600 mr-4">Login</button>
+            <button id="signupButton" class="text-white px-4 py-2 rounded-md bg-green-500 hover:bg-green-600">Signup</button>
+        </div>
+    </div>
+</nav>
+<div class="container mx-auto p-4">
+    <form id="loginForm" >
+        <h1 class="text-3xl font-semibold mt-8 mb-4">Login</h1>
+        <input type="text" id="loginUsername" placeholder="Username" autocomplete="username" required class="w-full px-4 py-2 rounded-md border border-gray-300 mb-4">
+        <div class="relative">
+            <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" required class="w-full px-4 py-2 rounded-md border border-gray-300 mb-4">
+            <button type="button" class="eye-btn absolute top-1/2 right-2 transform -translate-y-1/2" id="toggleLoginPasswordVisibility" data-target="loginPassword">
+                <i class="far fa-eye"></i>
+            </button>
+        </div>
+        <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-md">Login</button>
+        <!-- <button id="logoutBtn" type="submit" class="btn   w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 mt-4 rounded-md ">Logout</button> -->
+    </form>
+    
+    <form id="signupForm" class="hidden">
+        <h1 class="text-3xl font-semibold mt-8 mb-4">Signup</h1>
+        <input type="text" id="signupUsername" placeholder="Username" autocomplete="username" required class="w-full px-4 py-2 rounded-md border border-gray-300 mb-4">
+        <input type="text" id="signupName" placeholder="Name" required class="w-full px-4 py-2 rounded-md border border-gray-300 mb-4">
+        <input type="email" id="signupEmail" placeholder="Email" autocomplete="username" required class="w-full px-4 py-2 rounded-md border border-gray-300 mb-4">
+        <div class="relative">
+            <input type="password" id="signupPassword" placeholder="Password" autocomplete="new-password" required class="w-full px-4 py-2 rounded-md border border-gray-300 mb-4">
+            <button type="button" class="eye-btn absolute top-1/2 right-2 transform -translate-y-1/2" id="toggleSignupPasswordVisibility" data-target="signupPassword">
+                <i class="far fa-eye"></i>
+            </button>
+        </div>
+        <input type="password" id="signupPasswordConfirm" placeholder="Confirm Password" autocomplete="new-password" required class="w-full px-4 py-2 rounded-md border border-gray-300 mb-4">
+        <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-md">Signup</button>
+    </form>
+</div>
+
+<script src="https://kit.fontawesome.com/2083aca0de.js" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script src="script.js"></script>
+</body>
+</html>
